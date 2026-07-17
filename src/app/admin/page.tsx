@@ -1,138 +1,119 @@
-import PageHeader from "@/components/layout/PageHeader";
 import {
   Users,
-  CheckCircle2,
-  AlertTriangle,
-  Megaphone,
+  CalendarDays,
   House,
-  Ticket,
+  Megaphone,
 } from "lucide-react";
 
-const stats = [
-  {
-    title: "Checked In",
-    value: "187 / 241",
-    icon: CheckCircle2,
-    color: "bg-green-500",
-  },
-  {
-    title: "Participants",
-    value: "241",
-    icon: Users,
-    color: "bg-blue-600",
-  },
-  {
-    title: "Housing Issues",
-    value: "2",
-    icon: House,
-    color: "bg-orange-500",
-  },
-  {
-    title: "Urgent Alerts",
-    value: "1",
-    icon: AlertTriangle,
-    color: "bg-red-500",
-  },
-];
-
-const recentCheckIns = [
-  "Sarah Johnson • 8:42 AM",
-  "Michael Davis • 8:38 AM",
-  "Emily Carter • 8:31 AM",
-  "James Wilson • 8:25 AM",
-  "Olivia Smith • 8:17 AM",
-];
-
 export default function AdminPage() {
+  const stats = [
+    {
+      title: "Participants",
+      value: "146",
+      icon: Users,
+    },
+    {
+      title: "Festival Events",
+      value: "18",
+      icon: CalendarDays,
+    },
+    {
+      title: "Housing Filled",
+      value: "92%",
+      icon: House,
+    },
+    {
+      title: "Announcements",
+      value: "6",
+      icon: Megaphone,
+    },
+  ];
+
   return (
     <main className="min-h-screen bg-slate-100">
-      <div className="max-w-6xl mx-auto px-6 py-10">
+      <div className="max-w-7xl mx-auto px-6 py-10">
 
-        <PageHeader
-          title="Festival Operations"
-          subtitle="Administrative Dashboard"
-        />
+        <h1 className="text-4xl font-bold text-slate-800">
+          Festival Command Center
+        </h1>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+        <p className="text-slate-500 mt-2 mb-10">
+          Music in the Mountains Festival Administration
+        </p>
 
+        <div className="grid gap-6 md:grid-cols-2 xl:grid-cols-4">
           {stats.map((stat) => {
             const Icon = stat.icon;
 
             return (
               <div
                 key={stat.title}
-                className="bg-white rounded-3xl shadow-md p-6"
+                className="rounded-2xl bg-white p-6 shadow-md border border-slate-200"
               >
-                <div className={`${stat.color} w-14 h-14 rounded-2xl flex items-center justify-center text-white mb-5`}>
-                  <Icon />
+                <div className="flex justify-between items-center">
+
+                  <div>
+                    <p className="text-slate-500">
+                      {stat.title}
+                    </p>
+
+                    <h2 className="mt-2 text-4xl font-bold text-slate-800">
+                      {stat.value}
+                    </h2>
+                  </div>
+
+                  <div className="rounded-xl bg-sky-100 p-4">
+                    <Icon className="text-sky-700" size={30} />
+                  </div>
+
                 </div>
-
-                <p className="text-slate-500">
-                  {stat.title}
-                </p>
-
-                <h2 className="text-3xl font-bold mt-2">
-                  {stat.value}
-                </h2>
               </div>
             );
           })}
-
-        </div>
-
-        <div className="grid lg:grid-cols-2 gap-8 mt-10">
-
-          <div className="bg-white rounded-3xl shadow-md p-8">
-
-            <h2 className="text-2xl font-bold mb-5">
-              Recent Check-Ins
-            </h2>
-
-            <div className="space-y-4">
-
-              {recentCheckIns.map((person) => (
-                <div
-                  key={person}
-                  className="flex items-center justify-between border-b pb-3"
-                >
-                  <span>{person}</span>
-
-                  <CheckCircle2 className="text-green-600" />
                 </div>
-              ))}
 
+        <div className="mt-10 bg-white rounded-2xl shadow-md border border-slate-200 p-6">
+
+          <h2 className="text-2xl font-bold text-slate-800 mb-6">
+            Recent Activity
+          </h2>
+
+          <div className="space-y-4">
+
+            <div className="border-l-4 border-sky-600 pl-4 py-2">
+              <p className="font-semibold">
+                New participant registered
+              </p>
+              <p className="text-sm text-slate-500">
+                Emily Carter joined the festival.
+              </p>
             </div>
 
-          </div>
+            <div className="border-l-4 border-green-600 pl-4 py-2">
+              <p className="font-semibold">
+                Housing assignment updated
+              </p>
+              <p className="text-sm text-slate-500">
+                Room 214 assigned at Mountaineer Square.
+              </p>
+            </div>
 
-          <div className="bg-white rounded-3xl shadow-md p-8">
+            <div className="border-l-4 border-amber-500 pl-4 py-2">
+              <p className="font-semibold">
+                New announcement published
+              </p>
+              <p className="text-sm text-slate-500">
+                Parking information has been updated.
+              </p>
+            </div>
 
-            <h2 className="text-2xl font-bold mb-5">
-              Quick Actions
-            </h2>
-
-            <div className="grid gap-4">
-
-              <button className="rounded-2xl bg-blue-900 text-white p-4 flex items-center gap-3 hover:bg-blue-800 transition">
-                <Megaphone />
-                Send Announcement
-              </button>
-
-              <button className="rounded-2xl bg-green-700 text-white p-4 flex items-center gap-3 hover:bg-green-600 transition">
-                <Users />
-                View Participants
-              </button>
-
-              <button className="rounded-2xl bg-amber-600 text-white p-4 flex items-center gap-3 hover:bg-amber-500 transition">
-                <House />
-                Housing Assignments
-              </button>
-
-              <button className="rounded-2xl bg-purple-700 text-white p-4 flex items-center gap-3 hover:bg-purple-600 transition">
-                <Ticket />
-                Ticket Dashboard
-              </button>
-
+            <div className="border-l-4 border-purple-600 pl-4 py-2">
+              <p className="font-semibold">
+                Performance schedule revised
+              </p>
+              <p className="text-sm text-slate-500">
+                Friday rehearsal moved to 3:00 PM.
+              </p>
             </div>
 
           </div>
