@@ -1,40 +1,40 @@
 export default function TodayCard() {
   return (
-    <div className="bg-gradient-to-r from-indigo-900 to-slate-800 text-white rounded-3xl shadow-xl p-8 mb-10">
+    <div className="mb-10 rounded-3xl border border-slate-200 bg-white p-8 shadow-lg">
 
-      <p className="uppercase text-sm tracking-widest text-indigo-200">
-        Today's Festival
-      </p>
-
-      <h2 className="text-3xl font-bold mt-2">
-        Orchestra Rehearsal
-      </h2>
-
-      <p className="mt-2 text-lg text-slate-200">
-        Today • 2:00 PM
-      </p>
-
-      <div className="mt-8 grid grid-cols-2 gap-6">
-
+      <div className="flex items-center justify-between">
         <div>
-          <p className="text-indigo-200 text-sm">
-            Venue
+          <p className="text-sm font-semibold uppercase tracking-[0.2em] text-sky-700">
+            Today
           </p>
 
-          <p className="text-xl font-semibold">
-            Kincaid Hall
+          <h2 className="mt-2 text-3xl font-bold text-slate-800">
+            Friday, July 17
+          </h2>
+
+          <p className="mt-2 text-slate-500">
+            Festival Day 1
           </p>
         </div>
 
-        <div>
-          <p className="text-indigo-200 text-sm">
-            Check-Ins
-          </p>
-
-          <p className="text-xl font-semibold">
-            43 / 51
-          </p>
+        <div className="text-5xl">
+          🎻
         </div>
+      </div>
+
+      <div className="mt-8 rounded-2xl bg-slate-50 p-6">
+
+        <p className="text-sm uppercase tracking-wide text-slate-500">
+          Next Event
+        </p>
+
+        <h3 className="mt-2 text-2xl font-semibold text-slate-800">
+          Orchestra Rehearsal
+        </h3>
+
+        <p className="mt-3 text-lg text-slate-600">
+          2:00 PM • Kincaid Hall
+        </p>
 
       </div>
 

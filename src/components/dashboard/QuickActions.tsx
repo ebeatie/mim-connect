@@ -11,37 +11,37 @@ import {
 const actions = [
   {
     title: "Schedule",
-    description: "View rehearsals and performances",
+    description: "Rehearsals & concerts",
     href: "/schedule",
     icon: CalendarDays,
   },
   {
     title: "Announcements",
-    description: "Latest festival news",
+    description: "Festival updates",
     href: "/announcements",
     icon: Megaphone,
   },
   {
     title: "Directory",
-    description: "Find musicians and staff",
+    description: "Faculty, staff & performers",
     href: "/directory",
     icon: Users,
   },
   {
     title: "Housing",
-    description: "View your accommodations",
+    description: "Accommodations",
     href: "/housing",
     icon: House,
   },
   {
     title: "Tickets",
-    description: "Your concert tickets",
+    description: "Concert admission",
     href: "/tickets",
     icon: Ticket,
   },
   {
     title: "Profile",
-    description: "Your festival profile",
+    description: "Your account",
     href: "/profile",
     icon: UserCircle,
   },
@@ -50,11 +50,19 @@ const actions = [
 export default function QuickActions() {
   return (
     <section>
-      <h2 className="text-2xl font-bold text-slate-800 mb-6">
-        Quick Actions
-      </h2>
 
-      <div className="grid gap-6 md:grid-cols-2 xl:grid-cols-3">
+      <div className="mb-8">
+        <h2 className="text-3xl font-bold text-slate-800">
+          Festival Dashboard
+        </h2>
+
+        <p className="mt-2 text-slate-500">
+          Choose where you'd like to go.
+        </p>
+      </div>
+
+      <div className="grid grid-cols-2 gap-6 lg:grid-cols-3">
+
         {actions.map((action) => {
           const Icon = action.icon;
 
@@ -62,23 +70,29 @@ export default function QuickActions() {
             <Link
               key={action.title}
               href={action.href}
-              className="bg-white rounded-2xl border border-slate-200 p-6 shadow-sm hover:shadow-lg hover:-translate-y-1 transition-all duration-200"
+              className="group rounded-3xl bg-white border border-slate-200 p-6 shadow-md transition-all duration-300 hover:-translate-y-2 hover:shadow-xl"
             >
-              <div className="w-12 h-12 rounded-xl bg-sky-100 flex items-center justify-center mb-4">
-                <Icon className="w-6 h-6 text-sky-700" />
+
+              <div className="mb-5 flex h-14 w-14 items-center justify-center rounded-2xl bg-sky-100 transition-colors group-hover:bg-sky-700">
+
+                <Icon className="h-7 w-7 text-sky-700 group-hover:text-white" />
+
               </div>
 
-              <h3 className="text-lg font-semibold text-slate-800">
+              <h3 className="text-xl font-semibold text-slate-800">
                 {action.title}
               </h3>
 
-              <p className="mt-2 text-sm text-slate-500">
+              <p className="mt-2 text-sm leading-6 text-slate-500">
                 {action.description}
               </p>
+
             </Link>
           );
         })}
+
       </div>
+
     </section>
   );
 }

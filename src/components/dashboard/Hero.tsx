@@ -18,16 +18,19 @@ export default function Hero() {
 
         <div className="mx-auto w-full max-w-6xl px-8 text-white">
 
-          <h1 className="text-3xl md:text-5xl font-bold">
-            Music in the Mountains Connect
-          </h1>
+  <h1 className="text-4xl md:text-5xl font-bold">
+    Music in the Mountains Connect
+  </h1>
 
-          <p className="mt-3 text-xl md:text-2xl text-slate-100">
-            Welcome, Erin
-          </p>
+  <p className="mt-5 text-2xl font-semibold">
+    Good Morning, Erin
+  </p>
 
-        </div>
+  <p className="mt-2 text-lg text-slate-200">
+    Festival Administrator
+  </p>
 
+</div>
       </div>
 
     </section>

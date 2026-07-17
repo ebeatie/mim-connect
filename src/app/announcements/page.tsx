@@ -1,88 +1,87 @@
-import { Plus, Pencil, Trash2 } from "lucide-react";
+import PageHeader from "@/components/layout/PageHeader";
+import { Megaphone, Pin } from "lucide-react";
 
 const announcements = [
   {
-    id: 1,
-    title: "Parking Update",
-    body: "Please use the north parking lot after 5 PM.",
+    title: "Welcome to Festival Week!",
     date: "Today",
+    message:
+      "We're excited to welcome everyone to Music in the Mountains. Check your schedule daily for updates.",
+    pinned: true,
   },
   {
-    id: 2,
-    title: "Rehearsal Change",
-    body: "Brass rehearsal begins at 2:30 PM.",
+    title: "Parking Update",
     date: "Yesterday",
+    message:
+      "Overflow parking is available at Gunnison High School with shuttle service every 15 minutes.",
+    pinned: false,
+  },
+  {
+    title: "Volunteer Meeting",
+    date: "Monday",
+    message:
+      "All volunteers should attend the orientation meeting at 4:00 PM in the Pavilion.",
+    pinned: false,
   },
 ];
 
-export default function AdminAnnouncementsPage() {
+export default function AnnouncementsPage() {
   return (
-    <main className="min-h-screen bg-slate-100">
-      <div className="max-w-5xl mx-auto px-6 py-10">
+    <div className="mx-auto max-w-6xl px-6 py-8">
 
-        <div className="flex justify-between items-center mb-8">
+      <PageHeader
+        title="Announcements"
+        subtitle="Festival news and important updates"
+      />
 
-          <div>
-            <h1 className="text-4xl font-bold text-slate-800">
-              Announcement Manager
-            </h1>
+      <div className="space-y-5">
 
-            <p className="text-slate-500 mt-2">
-              Create and manage festival announcements.
-            </p>
-          </div>
+        {announcements.map((item) => (
+          <div
+            key={item.title}
+            className="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm"
+          >
 
-          <button className="flex items-center gap-2 bg-sky-700 text-white px-5 py-3 rounded-xl hover:bg-sky-800 transition">
-            <Plus size={18} />
-            New Announcement
-          </button>
+            <div className="flex items-center justify-between">
 
-        </div>
+              <div className="flex items-center gap-3">
 
-        <div className="space-y-6">
-
-          {announcements.map((announcement) => (
-            <div
-              key={announcement.id}
-              className="bg-white rounded-2xl shadow-md border border-slate-200 p-6"
-            >
-              <div className="flex justify-between items-start">
+                <div className="rounded-full bg-sky-100 p-3">
+                  <Megaphone className="text-sky-700" />
+                </div>
 
                 <div>
 
                   <h2 className="text-xl font-bold">
-                    {announcement.title}
+                    {item.title}
                   </h2>
 
-                  <p className="text-slate-500 text-sm mt-1">
-                    {announcement.date}
+                  <p className="text-sm text-slate-500">
+                    {item.date}
                   </p>
-
-                  <p className="mt-4">
-                    {announcement.body}
-                  </p>
-
-                </div>
-
-                <div className="flex gap-3">
-
-                  <button className="p-2 rounded-lg hover:bg-slate-100">
-                    <Pencil size={20} />
-                  </button>
-
-                  <button className="p-2 rounded-lg hover:bg-red-100 text-red-600">
-                    <Trash2 size={20} />
-                  </button>
 
                 </div>
 
               </div>
-            </div>
-          ))}
 
-        </div>
+              {item.pinned && (
+                <div className="flex items-center gap-2 rounded-full bg-amber-100 px-3 py-1 text-sm font-semibold text-amber-800">
+                  <Pin size={14} />
+                  Pinned
+                </div>
+              )}
+
+            </div>
+
+            <p className="mt-5 text-slate-600">
+              {item.message}
+            </p>
+
+          </div>
+        ))}
 
       </div>
-    </main>
+
+    </div>
   );
 }

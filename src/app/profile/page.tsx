@@ -1,85 +1,60 @@
 import PageHeader from "@/components/layout/PageHeader";
+import { Mail, Phone, Shield, House } from "lucide-react";
 
 export default function ProfilePage() {
   return (
-    <main className="min-h-screen bg-slate-100">
-      <div className="max-w-4xl mx-auto px-6 py-10">
+    <div className="mx-auto max-w-4xl px-6 py-8">
 
-        <PageHeader
-          title="My Profile"
-          subtitle="Your Music in the Mountains information"
-        />
+      <PageHeader
+        title="My Profile"
+        subtitle="Your Music in the Mountains information"
+      />
 
-        <div className="bg-white rounded-3xl shadow-lg p-8">
+      <div className="rounded-3xl border border-slate-200 bg-white p-8 shadow-sm">
 
-          <div className="flex items-center gap-6">
+        <div className="flex items-center gap-6">
 
-            <div className="w-24 h-24 rounded-full bg-[var(--mim-blue)] text-white flex items-center justify-center text-4xl shadow-lg">
-  🎻
-</div>
-
-            <div>
-              <h2 className="text-2xl font-bold">
-                Erin Beatie
-              </h2>
-
-              <p className="text-slate-500">
-                Festival Administrator
-              </p>
-            </div>
-
+          <div className="flex h-24 w-24 items-center justify-center rounded-full bg-sky-700 text-4xl font-bold text-white">
+            E
           </div>
 
-          <hr className="my-8" />
+          <div>
+            <h2 className="text-3xl font-bold">
+              Erin Beatie
+            </h2>
 
-          <div className="grid md:grid-cols-2 gap-6">
+            <p className="text-sky-700 font-semibold">
+              Festival Administrator
+            </p>
+          </div>
 
-            <InfoCard
-              title="Email"
-              value="erin@example.com"
-            />
+        </div>
 
-            <InfoCard
-              title="Phone"
-              value="(555) 555-5555"
-            />
+        <div className="mt-8 space-y-5">
 
-            <InfoCard
-              title="Housing"
-              value="TBD"
-            />
+          <div className="flex items-center gap-3">
+            <Mail className="text-sky-700" />
+            <span>erin@mim.org</span>
+          </div>
 
-            <InfoCard
-              title="Department"
-              value="Administration"
-            />
+          <div className="flex items-center gap-3">
+            <Phone className="text-sky-700" />
+            <span>(970) 555-0101</span>
+          </div>
 
+          <div className="flex items-center gap-3">
+            <House className="text-sky-700" />
+            <span>Festival Housing Assigned</span>
+          </div>
+
+          <div className="flex items-center gap-3">
+            <Shield className="text-sky-700" />
+            <span>Administrator Access</span>
           </div>
 
         </div>
 
       </div>
-    </main>
-  );
-}
-
-function InfoCard({
-  title,
-  value,
-}: {
-  title: string;
-  value: string;
-}) {
-  return (
-    <div className="rounded-2xl bg-slate-50 p-5 border">
-
-      <p className="text-sm text-slate-500">
-        {title}
-      </p>
-
-      <p className="text-lg font-semibold mt-1">
-        {value}
-      </p>
 
     </div>
   );
