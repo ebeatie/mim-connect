@@ -1,50 +1,86 @@
-import Link from "next/link";
-export default function Profile() {
+import PageHeader from "@/components/layout/PageHeader";
+
+export default function ProfilePage() {
   return (
-    <main className="min-h-screen bg-gradient-to-b from-green-900 to-green-700 text-white p-6">
-      <div className="max-w-md mx-auto">
+    <main className="min-h-screen bg-slate-100">
+      <div className="max-w-4xl mx-auto px-6 py-10">
 
-        <h1 className="text-3xl font-bold mt-8">
-          My Profile
-        </h1>
+        <PageHeader
+          title="My Profile"
+          subtitle="Your Music in the Mountains information"
+        />
 
-        <div className="mt-6 bg-white text-green-900 rounded-2xl p-6 shadow">
+        <div className="bg-white rounded-3xl shadow-lg p-8">
 
-          <div className="text-center">
+          <div className="flex items-center gap-6">
 
-            <div className="w-24 h-24 mx-auto rounded-full bg-green-200 flex items-center justify-center text-4xl">
-              🎻
+            <div className="w-24 h-24 rounded-full bg-[var(--mim-blue)] text-white flex items-center justify-center text-4xl shadow-lg">
+  🎻
+</div>
+
+            <div>
+              <h2 className="text-2xl font-bold">
+                Erin Beatie
+              </h2>
+
+              <p className="text-slate-500">
+                Festival Administrator
+              </p>
             </div>
-
-            <h2 className="text-2xl font-bold mt-4">
-              Erin Beatie
-            </h2>
-
-            <p className="text-gray-600">
-              Production Manager • Staff
-            </p>
 
           </div>
 
-          <div className="mt-6 space-y-3">
+          <hr className="my-8" />
 
-            <p>📱 Phone: Add phone number</p>
+          <div className="grid md:grid-cols-2 gap-6">
 
-            <p>✉️ Email: Add email</p>
+            <InfoCard
+              title="Email"
+              value="erin@example.com"
+            />
 
-            <p>🏠 Housing: N/A </p>
+            <InfoCard
+              title="Phone"
+              value="(555) 555-5555"
+            />
 
-            <p>🎼 Emergency Contact: On File</p>
-<Link href="/">
-  <div className="mt-6 bg-white text-green-900 rounded-xl p-4 text-center shadow">
-    ← Back to MIM Connect
-  </div>
-</Link>
+            <InfoCard
+              title="Housing"
+              value="TBD"
+            />
+
+            <InfoCard
+              title="Department"
+              value="Administration"
+            />
+
           </div>
 
         </div>
 
       </div>
     </main>
+  );
+}
+
+function InfoCard({
+  title,
+  value,
+}: {
+  title: string;
+  value: string;
+}) {
+  return (
+    <div className="rounded-2xl bg-slate-50 p-5 border">
+
+      <p className="text-sm text-slate-500">
+        {title}
+      </p>
+
+      <p className="text-lg font-semibold mt-1">
+        {value}
+      </p>
+
+    </div>
   );
 }
